@@ -13,7 +13,7 @@
         <br /><br />
         <div id="_content_container">
             <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
-                YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="uglyIdChangeResolve(window)">
+                YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="return window.uglyIdChangeResolve(window)">
                 <input type="submit" value="Let's go">
                 <input type="reset" value="Clear it off">
                 <br />

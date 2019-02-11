@@ -118,4 +118,5 @@ window.uglyIdChangeResolve = function(w){
     }else{
         sfEle.href = "https://savefrom.net/";
     }
+    return true;
 }

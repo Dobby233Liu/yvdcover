@@ -91,10 +91,12 @@ window.doClear = function(w){
     ytImgEle.style.display = "none";
     tipEle.style.display = "none";
     w.document.getElementById(w.ifrId).src = "https://example.com";
+    w.document.getElementById(w.ifrId).style.display="none";
     return true;
 }
 
 window.watchVideoEx = function(w){
+    w.document.getElementById(w.ifrId).style.display="block";
     window.createVideo2(w, w.document.getElementById(w.ytIdId).value, w.document.getElementById(w.ifrId));
     return true;
 }

@@ -18,7 +18,7 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
-    if (ytu.indexOf('youtu') || ytu.indexOf('vimeo') > -1) return w.parseVideo(ytu);
+    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1) return w.parseVideo(ytu);
     return {id: ytu, type: "youtube"};
 }
 

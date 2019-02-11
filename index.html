@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="skr.css">
     </head>
-    <body style="background-image:url(bgtexture.png)" class="d-flex flex-column h-300">
+    <body class="d-flex flex-column h-300">
         <header>
           <nav class="navbar navbar-dark fixed-top bg-dark">
               <a class="navbar-brand" href="#">yvdcover</a>
@@ -30,15 +30,14 @@
                   <p>
                     <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
                         YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="return window.uglyIdChangeResolve(window)">
-                        <input type="submit" value="Let's go">
-                        <input type="reset" value="Clear it off">
-                        <br />
-                        <input type="button" value="Watch this video" onclick="return watchVideoEx(window)">
+                        <input type="submit" value="Let's go" class="btn btn-primary">
+                        <input type="reset" value="Clear it off" class="btn btn-danger">
+                        <input type="button" value="Watch this video" onclick="return watchVideoEx(window)" class="btn btn-secondary">
                     </form>
                   </p>  
               </div>
               <p>
-              <br /><div> -- cover -- </div><br />
+               -- cover -- 
               <div id="tip" style="display: none;">We're complete; Preview the cover below, right-click to download.<br /><br /></div>
               <div>
                   <img id="resultImg" width="875" height="492" alt="Result; This message may display when we cannot GET the image" style="display: none;"/>
@@ -46,7 +45,7 @@
               <br />
               </p>
               <p>
-              <br /><div> -- video -- </div><br />
+               -- video -- 
               <iframe width="875" height="492" src="https://example.com" frameborder="0" style="border:none;display: none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="myIfr"></iframe>
               </p>
           </div>

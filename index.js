@@ -69,27 +69,23 @@ window.createVideo2 = function(w, url, ifr) {
 
 // __index
 window.ytImgContId = "resultImg";
-window.tipId = "tip";
 window.ytIdId = "ytId";
 window.ifrId = "myIfr";
 window.sfId = "sfSponsor";
 
 window.doRefresh = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);
-    var tipEle = w.document.getElementById(w.tipId);
     var ytIEle = w.document.getElementById(w.ytIdId);
     w.getVideoThumbnail(w, ytIEle.value, function(f){
         ytImgEle.src = f;
         ytImgEle.style.display = "block";
-        tipEle.style.display = "block";
+        w.document.getElementById(w.ifrId).style.display="none";
     });
     return false;
 }
 window.doClear = function(w){
-    var tipEle = w.document.getElementById(w.tipId);
     var ytImgEle = w.document.getElementById(w.ytImgContId);
     ytImgEle.style.display = "none";
-    tipEle.style.display = "none";
     w.document.getElementById(w.ifrId).src = "https://example.com";
     w.document.getElementById(w.ifrId).style.display="none";
     return true;
@@ -97,6 +93,7 @@ window.doClear = function(w){
 
 window.watchVideoEx = function(w){
     w.document.getElementById(w.ifrId).style.display="block";
+    w.document.getElementById(w.ytImgContId).style.display="none";
     window.createVideo2(w, w.document.getElementById(w.ytIdId).value, w.document.getElementById(w.ifrId));
     return true;
 }

@@ -99,16 +99,6 @@ window.watchVideoEx = function(w){
     return true;
 }
 
-window.sfJump = function(w){
-    var ytIEle = w.document.getElementById(w.ytIdId);
-    if (ytIEle.value != ""){
-        window.open("https://savefrom.net/" + ytIEle.value, "_blank");
-        return false;
-    }else{
-        return true;
-    }
-}
-
 window.uglyIdChangeResolve = function(w){
     var ytIEle = w.document.getElementById(w.ytIdId);
     var sfEle = w.document.getElementById(w.sfId);

@@ -1,36 +1,60 @@
-<html>
+<!doctype html>
+<html lang="zh-hans" class="h-300">
     <head>
+        <meta charset="utf-8">
         <title>YouTube/Vimeo/DailyMotion Max Resolution Cover Download</title>
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="skr.css">
     </head>
-    <body style="text-align:center;background-image:url(bgtexture.png);">
-        <h1 style="text-weight:normal;"><script>document.write(document.title)</script></h1>
-        <noscript><strong>Sorry, No way, please enable JavaScript</strong></noscript>
-        <strong>For video download you should check out <a href="https://savefrom.net" target="_blank" id="sfSponsor">SaveFrom</a>.</strong>
-        <br /><br />
-        <div id="_content_container">
-            <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
-                YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="return window.uglyIdChangeResolve(window)">
-                <input type="submit" value="Let's go">
-                <input type="reset" value="Clear it off">
+    <body style="background-image:url(bgtexture.png)" class="d-flex flex-column h-300">
+        <header>
+          <nav class="navbar navbar-dark fixed-top bg-dark">
+              <a class="navbar-brand" href="#">yvdcover</a>
+          </nav>
+        </header>
+        <main role="main">
+          <div class="container">
                 <br />
-                <input type="button" value="Watch this video" onclick="return watchVideoEx(window)">
-            </form>  
-        </div>
-        <br /><div> -- cover -- </div><br />
-        <div id="tip" style="display: none;">We're complete; Preview the cover below, right-click to download.<br /><br /></div>
-        <div style="vertical-align:center;display: flex; justify-content: center;">
-            <img id="resultImg" width="875" height="492" alt="Result; This message may display when we cannot GET the image" style="display: none;" align="center"/>
-        </div>
-        <br />
-        <br /><div style="text-align:center"> -- video -- </div><br />
-        <iframe align="center" width="875" height="492" src="https://example.com" frameborder="0" style="border:none;display: none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="myIfr"></iframe>
-        <footer style="color:grey">
-            <br />
-            tool created by <a href="https://github.com/Dobby233Liu" target="_blank">Liu Wenyuan</a>
+                <h1 class="mt-5">Y/V/D Cover Download</h1>
+                <p class="lead">
+                  <noscript><strong>Sorry, No way, please enable JavaScript</strong></noscript>
+                  <strong>For video download you should check out <a href="https://savefrom.net" target="_blank" id="sfSponsor">SaveFrom</a>.</strong>
+                </p>
+              <br /><br />
+              <div id="_content_container">
+                  <p>
+                    <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
+                        YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="return window.uglyIdChangeResolve(window)">
+                        <input type="submit" value="Let's go">
+                        <input type="reset" value="Clear it off">
+                        <br />
+                        <input type="button" value="Watch this video" onclick="return watchVideoEx(window)">
+                    </form>
+                  </p>  
+              </div>
+              <p>
+              <br /><div> -- cover -- </div><br />
+              <div id="tip" style="display: none;">We're complete; Preview the cover below, right-click to download.<br /><br /></div>
+              <div>
+                  <img id="resultImg" width="875" height="492" alt="Result; This message may display when we cannot GET the image" style="display: none;"/>
+              </div>
+              <br />
+              </p>
+              <p>
+              <br /><div> -- video -- </div><br />
+              <iframe width="875" height="492" src="https://example.com" frameborder="0" style="border:none;display: none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="myIfr"></iframe>
+              </p>
+          </div>
+        </main>
+        <footer class="footer mt-auto py-3 fixed-bottom">
+            <div class="container">
+                <span class="text-muted">tool created by <a href="https://github.com/Dobby233Liu" target="_blank">Liu Wenyuan</a></span>
+            </div>
         </footer>
         <script type="text/javascript" src="index.js"></script>
     </body>

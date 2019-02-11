@@ -102,8 +102,8 @@ window.sfJump = function(w){
     var ytIEle = w.document.getElementById(w.ytIdId);
     if (ytIEle.value != ""){
         window.open("https://savefrom.net/"+ytIEle.value, "_blank");
-        return true;
-    }else{
         return false;
+    }else{
+        return true;
     }
 }

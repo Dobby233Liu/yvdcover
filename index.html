@@ -6,27 +6,27 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     </head>
-    <body>
-        <h1><script>document.write(document.title)</script></h1>
-        <noscript><strong>Sorry! No way, please enable JavaScript</strong></noscript>
-        <strong>For video download you should check out <a href="https://savefrom.net" onclick="return sfJump(window)" target="_blank" id="sfSponsor">SaveFrom</a>.</strong>
+    <body style="text-align:center;">
+        <h1 style="text-weight:normal;text-align:center"><script>document.write(document.title)</script></h1>
+        <noscript><strong style="text-align:center;text-weight:350;">Sorry, No way, please enable JavaScript</strong></noscript>
+        <strong style="text-align:center;text-weight:350;">For video download you should check out <a href="https://savefrom.net" onclick="return sfJump(window)" target="_blank" id="sfSponsor">SaveFrom</a>.</strong>
         <br /><br />
-        <div id="_content_container">
+        <div id="_content_container" style="text-align:center;">
             <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
                 YouTube/Vimeo/DailyMotion Video ID/URL (id does not support Vimeo and DailyMotion): <input type="text" id="ytId" onchange="return window.uglyIdChangeResolve(window)">
                 <input type="submit" value="Let's go">
                 <input type="reset" value="Clear it off">
                 <br />
-                <input type="button" value="Watch this video" onclick="return watchVideoEx(window)">
+                <center><input type="button" value="Watch this video" onclick="return watchVideoEx(window)"></center>
             </form>  
         </div>
         <br /><div style="text-align:center"> -- cover -- </div><br />
-        <div id="tip" style="display: none">We're complete; Preview the cover below, right-click to download.<br /><br /></div>
-        <img id="resultImg" width="875" height="492" alt="Result; This message may display when we cannot GET the image" style="display: none"/>
+        <div id="tip" style="display: none; text-align:center">We're complete; Preview the cover below, right-click to download.<br /><br /></div>
+        <img id="resultImg" width="875" height="492" alt="Result; This message may display when we cannot GET the image" style="display: none" align="center"/>
         <br />
         <br /><div style="text-align:center"> -- video -- </div><br />
-        <iframe width="875" height="492" src="https://example.com" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="myIfr"></iframe>
-        <footer>
+        <iframe align="center" width="875" height="492" src="https://example.com" frameborder="0" style="border:none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="myIfr"></iframe>
+        <footer style="text-align:center; color:grey">
             <br />
             tool created by <a href="https://github.com/Dobby233Liu" target="_blank">Liu Wenyuan</a>
         </footer>

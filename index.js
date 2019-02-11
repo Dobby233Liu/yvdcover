@@ -72,6 +72,7 @@ window.ytImgContId = "resultImg";
 window.tipId = "tip";
 window.ytIdId = "ytId";
 window.ifrId = "myIfr";
+window.sfId = "sfSponsor";
 
 window.doRefresh = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);
@@ -101,9 +102,20 @@ window.watchVideoEx = function(w){
 window.sfJump = function(w){
     var ytIEle = w.document.getElementById(w.ytIdId);
     if (ytIEle.value != ""){
-        window.open("https://savefrom.net/"+ytIEle.value, "_blank");
+        window.open("https://savefrom.net/" + ytIEle.value, "_blank");
         return false;
     }else{
         return true;
+    }
+}
+
+window.uglyIdChangeResolve = function(w){
+    var ytIEle = w.document.getElementById(w.ytIdId);
+    var sfEle = w.document.getElementById(w.sfId);
+    if (ytIEle.value != ""){
+        sfEle.href = "https://savefrom.net/" + ytIEle.value;
+        return false;
+    }else{
+        sfEle.href = "https://savefrom.net/";
     }
 }

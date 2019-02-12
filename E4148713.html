@@ -13,35 +13,14 @@
     </head>
     <body class="d-flex flex-column">
         <header>
-            <div class="pos-f-t">        
-          <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-              <h5 class="text-white h4">Collapsed content</h5>
-              <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-          </div>            
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+          <nav class="navbar navbar-dark fixed-top bg-dark">
               <a class="navbar-brand" href="#">yvdcover</a>
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-              </ul>
-              <span class="navbar-text">
-                Video Cover Download
-              </span>
-             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>             
           </nav>
-          </div>
         </header>
         <main role="main">
           <div class="container">
               <br />
-              <h1 class="mt-5">Video Cover Download</h1>
+              <h1 class="mt-5">Y/V/D Cover Download</h1>
               <p class="lead">
                   <!--[if IE]>
                     <strong>Do not use IE</strong><br />
@@ -52,24 +31,23 @@
               <p>
                   <form onsubmit="return doRefresh(window)" onreset="return doClear(window)" class="form-inline">
                     <div class="form-group">
-                        <div class="col-7"> 
-                          <input 
-                            type="text" 
-                            id="ytId" 
-                            onchange="return window.uglyIdChangeResolve(window)" 
-                            aria-label="id/url input"
-                            title="ID/URL (id only support YT)" 
-                            class="form-control">
-                         </div>
+                        
+                      <input 
+                        type="text" 
+                        id="ytId" 
+                        onchange="return window.uglyIdChangeResolve(window)" 
+                        aria-label="id/url input" 
+                        aria-describedby="urlHelp" 
+                        class="form-control">
                     </div>
                     <div class="btn-group" role="group" aria-label="form group submiter">
-                      <button type="submit" class="btn btn-primary">Get video cover</button>
-                      <button type="reset" class="btn btn-danger">Clear input</button>
-                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary">Watch the video</button>
+                      <button type="submit" class="btn btn-primary">Let's go</button>
+                      <button type="reset" class="btn btn-danger">Clear it off</button>
+                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary">Watch this video</button>
                     </div>
                   </form>
                 <!-- cover -->
-                <img id="resultImg" width="1280" height="720" alt="The result; This message will display when we cannot get the image" style="display: none;" class="img-thumbnail"/>
+                <img id="resultImg" width="1280" height="720" alt="Result; This message may display when we cannot GET the image" style="display: none;" class="img-thumbnail"/>
                 <!-- video --> 
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe 
@@ -88,7 +66,7 @@
         </main>
         <footer class="footer mt-auto py-3 fixed-bottom">
             <div class="container">
-                <span class="text-muted">tool by <a href="https://github.com/Dobby233Liu" target="_blank">Dobby233Liu</a></span>
+                <span class="text-muted">tool created by <a href="https://github.com/Dobby233Liu" target="_blank">Liu Wenyuan</a></span>
             </div>
         </footer>
         <script type="text/javascript" src="index.js"></script>

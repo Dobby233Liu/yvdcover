@@ -79,6 +79,7 @@ window.doRefresh = function(w){
     w.getVideoThumbnail(w, ytIEle.value, function(f){
         ytImgEle.src = f;
         ytImgEle.style.display = "block";
+        w.document.getElementById(w.ifrId).src = "about:blank";
         w.document.getElementById(w.ifrId).style.display="none";
     });
     return false;
@@ -86,7 +87,7 @@ window.doRefresh = function(w){
 window.doClear = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);
     ytImgEle.style.display = "none";
-    w.document.getElementById(w.ifrId).src = "https://example.com";
+    w.document.getElementById(w.ifrId).src = "about:blank";
     w.document.getElementById(w.ifrId).style.display="none";
     return true;
 }

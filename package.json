@@ -1,0 +1,13 @@
+{
+ "name": "yvdcover",
+ "main": "index.html",
+ "window": {
+  "width": 1280,
+  "height": 720,
+  "icon": "favicon.png",
+  "toolbar": true
+ },
+ "devDependencies": {
+  "nw-builder": "^3.5.7"
+ }
+}

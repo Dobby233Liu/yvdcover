@@ -8,6 +8,9 @@ before_install:
     - npm install os-tmpdir
 node_js:
     - '11'
+branches:
+    include:
+        - gh-pages
 script: node ./s-build-all.js --production
 deploy:
   provider: releases

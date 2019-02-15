@@ -6,7 +6,7 @@ var nw = new NwBuilder({
     files: './**/**',
     platforms: ['osx64', 'win32', 'win64'],
     version: 'latest',
-	flavor: ((arugments[0].trim()!==""&&arugments[0].equals("--production"))?"normal":"sdk"),
+	flavor: ((arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./favicon.icns",
 	winIco: "./favicon.ico"
 });

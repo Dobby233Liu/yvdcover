@@ -1,0 +1,19 @@
+language: node_js
+addons:
+  apt:
+    update: true
+before_install:
+- npm install nw-builder
+- npm install compressing
+node_js:
+- '11'
+script: node ./s-build-all.js
+deploy:
+  provider: releases
+  skip_cleanup: true
+  file: build/*.zip
+  user: Dobby233Liu
+  on:
+    tags: true
+  password:
+    secure: mWArm1blm6FR2voZ4sZgAEEYBIKpWDPNPoXwQJKJBzioiRW88PCbT8+nCuSuJxDDsbuS1CyzBCWayha2rZpwUNvD6BAC71WPNwP6+XRGcggfhNVF3ygF8ikTOJrYKBXuXyr5snIOtfdfdygYPVZcGrnu48iiatclA4lcwYEscbIAtBoVcu4fmVI9zpXo3bmRLBRESjxSsiMjFBREBYLfE5E4VX+zZwzbaOI2Tecurw2wsoy74ZTQENd8uHckFWWCSsk7Mms3/ki4iYCBFjrD29N1HS+CruQy4heIW4FMH5d7TSIedyAIwQA2gmEQqXs4Vt+oVO7S6WmrPeKq/l5RUmqxwzpqX3rroZBrhfxX8WHfarMCUBuXGhGNtIUZP3vAzF9Ac/XQFqjbFEqRmt3FjXafsLanW3h2VoUj/J0yTLQ+lgkBy+76F561l2JZcCtsCSXrZjYI6c7PwdpgBEaBNR8In4sstE61uXZ2qsKU6XLNlNID74HhoAOYoDIBrdZPHHYQjoRtJ84v9vKJPv2mroZoncYQvuM8A3QYCe/5st2UC1eqlMEHoSJt9/OyxC1U5SusYEI00tNQFbRq+URthiSx2q3IlXSlxNCos9xRXP1dIz92+G7EaLq7EUVdVrRxdOS4y9pkd1cXVUBPpNFsLcu2PJYPoYbgvegN2/2olgc=

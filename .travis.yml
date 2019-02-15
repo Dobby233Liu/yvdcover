@@ -3,11 +3,12 @@ addons:
   apt:
     update: true
 before_install:
-- npm install nw-builder
-- npm install compressing
+    - npm install nw-builder
+    - npm install compressing
+    - npm install os-tmpdir
 node_js:
-- '11'
-script: node ./s-build-all.js
+    - '11'
+script: node ./s-build-all.js --production
 deploy:
   provider: releases
   skip_cleanup: true

@@ -6,7 +6,7 @@ before_install:
     - npm install nw-builder
     - npm install compressing
     - npm install os-tmpdir
-    - npm install wine64
+    - apt-get install wine64
 node_js:
     - '11'
 branches:

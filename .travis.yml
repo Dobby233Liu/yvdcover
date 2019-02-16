@@ -6,9 +6,9 @@ before_install:
     - npm install nw-builder
     - npm install compressing
     - npm install os-tmpdir
-    - sudo add-apt-repository ppa:wine/wine-builds
-    - sudo apt-get update
-    - sudo apt-get install wine-devel
+    - bash ./traviswine.sh
+
+
 node_js:
     - '11'
 branches:

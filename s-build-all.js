@@ -15,20 +15,31 @@ var nw = new NwBuilder({
 nw.on('log',  console.log);
 
 nw.build().then(function () {
+	compressing.zip.compressDir('./build/yvdcover/win32/',
+						    './build/yvdcover/yvdcover-win32.zip')
+							.then(() => {
+								console.log("win32 zipping SUCCESS");
+							})
+							.catch(err => {
+								console.log("win32 zipping FAIL");
+							});
+	compressing.zip.compressDir('./build/yvdcover/win64/',
+						    './build/yvdcover/yvdcover-win64.zip')
+							.then(() => {
+								console.log("win64 zipping SUCCESS");
+							})
+							.catch(err => {
+								console.log("win64 zipping FAIL");
+							});
+	compressing.zip.compressDir('./build/yvdcover/osx64/',
+						    './build/yvdcover/yvdcover-osx64.zip')
+							.then(() => {
+								console.log("osx64 zipping SUCCESS");
+							})
+							.catch(err => {
+								console.log("osx64 zipping FAIL");
+							});
    console.log('all done!');
 }).catch(function (error) {
     console.error(error);
 });
-
-compressing.zip.compressFile('./build/yvdcover/win32/',
-						    './build/yvdcover/yvdcover-win32.zip')
-							.then(() => {})
-							.catch(err => {});
-compressing.zip.compressFile('./build/yvdcover/win64/',
-						    './build/yvdcover/yvdcover-win64.zip')
-							.then(() => {})
-							.catch(err => {});
-compressing.zip.compressFile('./build/yvdcover/osx64/',
-						    './build/yvdcover/yvdcover-osx64.zip')
-							.then(() => {})
-							.catch(err => {});

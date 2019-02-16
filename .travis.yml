@@ -20,6 +20,7 @@ script: node ./s-build-all.js --production
 deploy:
   provider: releases
   skip_cleanup: true
+  file_glob: true
   file: build/*.zip
   user: Dobby233Liu
   on:

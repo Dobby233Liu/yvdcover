@@ -3,9 +3,10 @@ addons:
   apt:
     update: true
 before_install:
-    - npm install nw-builder
-    - npm install compressing
-    - npm install os-tmpdir
+    - npm install nw-builder --save-dev
+    - npm install compressing --save-dev
+    # hack for travis ci machines
+    - npm install os-tmpdir --save-dev
     # - bash ./traviswine.sh
 
 

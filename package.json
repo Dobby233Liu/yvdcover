@@ -7,5 +7,9 @@
   "height": 720,
   "icon": "favicon.png",
   "toolbar": true
+ },
+ "devDependencies": {
+  "compressing": "^1.4.0",
+  "nw-builder": "^3.5.7"
  }
 }

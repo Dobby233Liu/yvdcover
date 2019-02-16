@@ -8,6 +8,7 @@ var nw = new NwBuilder({
     version: 'latest',
 	flavor: ((arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./favicon.icns",
+	downloadUrl: ((arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl)
 	//winIco: "./favicon.ico"
 });
 

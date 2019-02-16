@@ -6,7 +6,7 @@ before_install:
     - npm install nw-builder
     - npm install compressing
     - npm install os-tmpdir
-    - bash ./traviswine.sh
+    # - bash ./traviswine.sh
 
 
 node_js:

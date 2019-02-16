@@ -8,7 +8,7 @@ var nw = new NwBuilder({
     version: 'latest',
 	flavor: ((arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./favicon.icns",
-	winIco: "./favicon.ico"
+	//winIco: "./favicon.ico"
 });
 
 nw.on('log',  console.log);

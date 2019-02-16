@@ -9,7 +9,7 @@ before_install:
     - npm install os-tmpdir -g
     # - bash ./traviswine.sh
 
-install: bash echo ""
+install: git branch
 
 node_js:
     - '11'

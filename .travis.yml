@@ -3,27 +3,21 @@ addons:
   apt:
     update: true
 before_install:
-    - npm install nw-builder --save-dev
-    - npm install compressing --save-dev
-    # hack for travis ci machines
-    - npm install os-tmpdir -g
-    # - bash ./traviswine.sh
-
+- npm install nw-builder --save-dev
+- npm install compressing --save-dev
+- npm install os-tmpdir -g
 install: git branch
-
 node_js:
-    - '11'
+- '11'
 branches:
-    include:
-        - gh-pages
+  include:
+  - gh-pages
 script: node ./s-build-all.js --production
 deploy:
   provider: releases
-  skip_cleanup: true
-  file_glob: true
+  api_key:
+    secure: CBSXvp0SLniuVce95oeOjrYYKXzR/LB01GutCM8xyrG8526u27T0OX0j6fiMDR6BzbUaEhD6MfvKhDgx3gXreenfpvtUn+4M9PAsMxx/cpU3M8rTq1cfGSl3V1xpLnII3L76feiJ1QxCZ+yyR8ddV1blEFMk5MNwEGeL8g2wcCpNC5NL+jUd88ttwuPueCwD28Ytdof3PcOaM6zTjNg3WSbcqqS42voLDOGMD+XBPU45JcJl59ZVdInTr3Ejykfxon8YqGwT7miOKwnVisBh926IyLe6dlAsgwSn+is6CyhoLiXN4O/aPbbwfv25dubJYYLgEXiIA7Zutja8/AY9hDkYp6Pa2sipMB+dc5+9xPR9v1STGRwl/uw26GYBl6Fo/0Is49QfdK9D2emnpwFwvAYDzDRnuiinXUSPRKdSUM0zS7nsMt76QOGTg9Hf47zZmBt0MaoxlTyebahFKHqJXUH9zsKvr978AryAf+W++32PHnvhDlsrqhNuqOQfxGH0KXiAKYtnGZk6PDrESxiejwdpvxDJ28Zci/3mEcJ0LnRZ40jZPhH68z01xQ3SG5XPlhQS89DrLIrU0cXil5UfK2+w5GQFaiyK4q1NcD3CiqAiFjFVnTWfiXjgxTpaRHtuOkfPRXjiX8ZcZgyAKnw+mNGbNQUTwHqTZ688knxH2AU=
   file: build/*.zip
-  user: Dobby233Liu
+  file_glob: true
   on:
-    tags: true
-  password:
-    secure: mWArm1blm6FR2voZ4sZgAEEYBIKpWDPNPoXwQJKJBzioiRW88PCbT8+nCuSuJxDDsbuS1CyzBCWayha2rZpwUNvD6BAC71WPNwP6+XRGcggfhNVF3ygF8ikTOJrYKBXuXyr5snIOtfdfdygYPVZcGrnu48iiatclA4lcwYEscbIAtBoVcu4fmVI9zpXo3bmRLBRESjxSsiMjFBREBYLfE5E4VX+zZwzbaOI2Tecurw2wsoy74ZTQENd8uHckFWWCSsk7Mms3/ki4iYCBFjrD29N1HS+CruQy4heIW4FMH5d7TSIedyAIwQA2gmEQqXs4Vt+oVO7S6WmrPeKq/l5RUmqxwzpqX3rroZBrhfxX8WHfarMCUBuXGhGNtIUZP3vAzF9Ac/XQFqjbFEqRmt3FjXafsLanW3h2VoUj/J0yTLQ+lgkBy+76F561l2JZcCtsCSXrZjYI6c7PwdpgBEaBNR8In4sstE61uXZ2qsKU6XLNlNID74HhoAOYoDIBrdZPHHYQjoRtJ84v9vKJPv2mroZoncYQvuM8A3QYCe/5st2UC1eqlMEHoSJt9/OyxC1U5SusYEI00tNQFbRq+URthiSx2q3IlXSlxNCos9xRXP1dIz92+G7EaLq7EUVdVrRxdOS4y9pkd1cXVUBPpNFsLcu2PJYPoYbgvegN2/2olgc=
+    repo: Dobby233Liu/yvdcover

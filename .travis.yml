@@ -19,11 +19,12 @@ deploy:
     secure: CBSXvp0SLniuVce95oeOjrYYKXzR/LB01GutCM8xyrG8526u27T0OX0j6fiMDR6BzbUaEhD6MfvKhDgx3gXreenfpvtUn+4M9PAsMxx/cpU3M8rTq1cfGSl3V1xpLnII3L76feiJ1QxCZ+yyR8ddV1blEFMk5MNwEGeL8g2wcCpNC5NL+jUd88ttwuPueCwD28Ytdof3PcOaM6zTjNg3WSbcqqS42voLDOGMD+XBPU45JcJl59ZVdInTr3Ejykfxon8YqGwT7miOKwnVisBh926IyLe6dlAsgwSn+is6CyhoLiXN4O/aPbbwfv25dubJYYLgEXiIA7Zutja8/AY9hDkYp6Pa2sipMB+dc5+9xPR9v1STGRwl/uw26GYBl6Fo/0Is49QfdK9D2emnpwFwvAYDzDRnuiinXUSPRKdSUM0zS7nsMt76QOGTg9Hf47zZmBt0MaoxlTyebahFKHqJXUH9zsKvr978AryAf+W++32PHnvhDlsrqhNuqOQfxGH0KXiAKYtnGZk6PDrESxiejwdpvxDJ28Zci/3mEcJ0LnRZ40jZPhH68z01xQ3SG5XPlhQS89DrLIrU0cXil5UfK2+w5GQFaiyK4q1NcD3CiqAiFjFVnTWfiXjgxTpaRHtuOkfPRXjiX8ZcZgyAKnw+mNGbNQUTwHqTZ688knxH2AU=
   skip_cleanup: true
   file:
-    - "build/yvdcover/yvdcover-win32.zip"
-    - "build/yvdcover/yvdcover-win64.zip"
-    - "build/yvdcover/yvdcover-osx64.zip"
+    - "./build/yvdcover/yvdcover-win32.zip"
+    - "./build/yvdcover/yvdcover-win64.zip"
+    - "./build/yvdcover/yvdcover-osx64.zip"
+  draft: true
   on:
-    all_branches: true
+    repo: Dobby233Liu/yvdcover
     tags: true
 
 notifications:

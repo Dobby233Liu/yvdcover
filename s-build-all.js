@@ -9,7 +9,8 @@ var nw = new NwBuilder({
 	flavor: ((arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./nwapp/favicon.icns",
 	downloadUrl: ((arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl)
-	// winIco: "./favicon.ico"
+	// winIco: "./nwapp/favicon.ico"
+	winIco: ((arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon")?"./nwapp/favicon.ico":null)
 });
 
 nw.on('log',  console.log);
@@ -35,11 +36,11 @@ nw.build().then(function () {
 						    './build/yvdcover/yvdcover-osx64.zip')
 							.then(() => {
 								console.log("osx64 zipping SUCCESS");
+								console.log('all done!');
 							})
 							.catch(err => {
 								console.log("osx64 zipping FAIL");
 							});
-   console.log('all done!');
 }).catch(function (error) {
     console.error(error);
 });

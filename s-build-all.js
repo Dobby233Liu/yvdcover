@@ -8,7 +8,7 @@ var nw = new NwBuilder({
     version: 'latest',
 	flavor: ((typeof(arugments[0])!="undefined"&&!!arugments[0]&&arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./nwapp/favicon.icns",
-	downloadUrl: ((typeof(arugments[1])!="undefined"&&!!arugments[1]&&arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl),
+	downloadUrl: ((typeof(arugments[1])!="undefined"&&!!arugments[1]&&arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":null),
 	// winIco: "./nwapp/favicon.ico"
 	winIco: ((typeof(arugments[2])!="undefined"&&!!arugments[2]&&arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon") ?"./nwapp/favicon.ico":null)
 });

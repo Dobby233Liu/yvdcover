@@ -6,11 +6,11 @@ var nw = new NwBuilder({
     files: './nwapp/**/**',
     platforms: ['osx64', 'win32', 'win64'],
     version: 'latest',
-	flavor: ((!!arugments[2]&&arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
+	flavor: ((typeof(arugments[0])!="undefined"&&!!arugments[0]&&arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./nwapp/favicon.icns",
-	downloadUrl: ((!!arugments[2]&&arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl),
+	downloadUrl: ((typeof(arugments[1])!="undefined"&&!!arugments[1]&&arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl),
 	// winIco: "./nwapp/favicon.ico"
-	winIco: ((!!arugments[2]&&arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon") ?"./nwapp/favicon.ico":null)
+	winIco: ((typeof(arugments[2])!="undefined"&&!!arugments[2]&&arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon") ?"./nwapp/favicon.ico":null)
 });
 
 nw.on('log',  console.log);

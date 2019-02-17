@@ -8,9 +8,9 @@ var nw = new NwBuilder({
     version: 'latest',
 	flavor: ((arugments[0].trim()!==""&&arugments[0] == "--production")?"normal":"sdk"),
 	macIcns: "./nwapp/favicon.icns",
-	downloadUrl: ((arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl)
+	downloadUrl: ((arugments[1].trim()!==""&&arugments[1] == "--im-chinese")?"https://cdn.npm.taobao.org/dist/nwjs/":NwBuilder.defaults.downloadUrl),
 	// winIco: "./nwapp/favicon.ico"
-	winIco: ((arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon")?"./nwapp/favicon.ico":null)
+	winIco: ( (arugments[2].trim()!==""&&arugments[2] == "--modify-win-icon") ?"./nwapp/favicon.ico":null)
 });
 
 nw.on('log',  console.log);

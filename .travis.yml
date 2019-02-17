@@ -22,10 +22,11 @@ deploy:
     - "./build/yvdcover/yvdcover-win32.zip"
     - "./build/yvdcover/yvdcover-win64.zip"
     - "./build/yvdcover/yvdcover-osx64.zip"
-  draft: true
+  # draft: true
   on:
     repo: Dobby233Liu/yvdcover
     tags: true
+    all_branches: true
 
 notifications:
   email:

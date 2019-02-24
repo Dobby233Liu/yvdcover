@@ -64,7 +64,8 @@ window.getVideoThumbnail = function (w, url, cb) {
                 }
             }, 
             dataType: "json",
-            // crossDomain: true,
+            jsonp: false,
+            crossDomain: true,
             cache: false
         });
     }

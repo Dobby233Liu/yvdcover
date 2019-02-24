@@ -81,7 +81,7 @@ window.createVideo2 = function(w, url, ifr) {
     } else if (videoObj.type == 'dailymotion') {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
     } else if (videoObj.type == 'bilibili') {
-        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id + "&crossDomain=1&as_wide=1&page=1");
+        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id.replace("av", "") + "&crossDomain=1&as_wide=1&page=1");
     }
     return $iframe;
 }

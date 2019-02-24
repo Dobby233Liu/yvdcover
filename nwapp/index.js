@@ -51,7 +51,7 @@ window.getVideoThumbnail = function (w, url, cb) {
             },
             headers: {
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'https://www.galmoe.com',
                 'Access-Control-Allow-Methods': 'GET',
                 'Access-Control-Allow-Headers': 'text/html, application/json',
             },

@@ -20,7 +20,7 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
-    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1) return w.parseVideo(ytu);
+    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 /**|| ytu.indexOf('bilibili') > -1**/) return w.parseVideo(ytu);
     return {id: ytu, type: "youtube"};
 }
 
@@ -43,7 +43,7 @@ window.getVideoThumbnail = function (w, url, cb) {
         w.$.ajax({
             type: 'GET',
             url: 'https://www.galmoe.com/t.php?aid=' + videoObj.id,
-            contentType: 'text/html',
+            responseType: 'text/plain',
             statusCode: {
                 404: function(){
                     console.err("statusCode = 404");

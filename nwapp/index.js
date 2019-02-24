@@ -39,14 +39,27 @@ window.getVideoThumbnail = function (w, url, cb) {
         cb('https://www.dailymotion.com/thumbnail/video/' + videoObj.id);
     } else if (videoObj.type == 'bilibili') {
         // sorry to galmoe.com maintainers
-        w.$.get('https://www.galmoe.com/t.php?aid=' + videoObj.id, function(data, status, jxhr) {
-            if (status == "200" && data[0].result == 1){
-                cb(data[0].url);
-            } else {
-                console.err("status == "+status+"\ndata[0].result = " + data[0].result);
-                cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+        // this one is strange, so i use $.ajax
+        w.$.ajax({
+            url: 'https://www.galmoe.com/t.php?aid=' + videoObj.id,
+            statusCode: {
+                404: function(){
+                    console.err("statusCode = 404");
+                    cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+                }
             }
-        }, "json");
+            success: function(data) {
+                if (data[0].result == 1){
+                    cb(data[0].url);
+                } else {
+                    console.err("data[0].result = " + data[0].result);
+                    cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+                }
+            }, 
+            dataType: "json",
+            crossDomain: true,
+            cache: false // to prevent the UP changes it.
+        });
     }
 }
 

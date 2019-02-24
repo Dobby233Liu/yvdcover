@@ -51,20 +51,20 @@ window.getVideoThumbnail = function (w, url, cb) {
             },
             headers: {
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': 'https://www.galmoe.com',
+                'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'text/html, application/json',
+                'Access-Control-Allow-Headers': '*',
             },
             success: function(data){
-                if (data2[0].result == 1){
-                    cb(data2[0].url);
+                if (data/**[0]**/.result == 1){
+                    cb(data/**[0]**/.url);
                 } else {
-                    console.err("data[0].result = " + data2[0].result);
+                    console.err("data.result = " + data/**[0]**/.result);
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             }, 
-            dataType: "json",
-            jsonp: false,
+            dataType: "jsonp",
+            // jsonp: false,
             crossDomain: true,
             cache: false
         });

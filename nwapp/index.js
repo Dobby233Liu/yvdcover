@@ -63,7 +63,7 @@ window.getVideoThumbnail = function (w, url, cb) {
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             }, 
-            dataType: "jsonp",
+            dataType: "json",
             // jsonp: false,
             crossDomain: true,
             cache: false

@@ -9,7 +9,7 @@ window.parseVideo = function (url) {
     } else if (RegExp.$3.indexOf('dailymotion') > -1) {
         var type = 'dailymotion';
     } else if (RegExp.$3.indexOf('bilibili') > -1) {
-        var type = 'bilibili";
+        var type = 'bilibili';
     }
 
     return {

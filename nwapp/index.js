@@ -47,7 +47,7 @@ window.getVideoThumbnail = function (w, url, cb) {
                     console.err("statusCode = 404");
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
-            }
+            },
             success: function(data){
                 if (data[0].result == 1){
                     cb(data[0].url);

@@ -55,7 +55,7 @@ window.getVideoThumbnail = function (w, url, cb) {
                     console.err("data.result = " + data/**[0]**/.result);
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
-            }
+            },
             crossDomain: true,
             cache: false
         });

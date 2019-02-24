@@ -48,7 +48,7 @@ window.getVideoThumbnail = function (w, url, cb) {
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             }
-            success: function(data) {
+            success: function(data){
                 if (data[0].result == 1){
                     cb(data[0].url);
                 } else {
@@ -58,7 +58,7 @@ window.getVideoThumbnail = function (w, url, cb) {
             }, 
             dataType: "json",
             crossDomain: true,
-            cache: false // to prevent the UP changes it.
+            cache: false
         });
     }
 }

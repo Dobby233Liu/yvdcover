@@ -42,22 +42,29 @@ window.getVideoThumbnail = function (w, url, cb) {
         // this one is strange, so i use $.ajax
         w.$.ajax({
             url: 'https://www.galmoe.com/t.php?aid=' + videoObj.id,
+            // responseType: 'text/html',
             statusCode: {
                 404: function(){
                     console.err("statusCode = 404");
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             },
+            headers: {
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'text/html, application/json',
+            },
             success: function(data){
-                if (data[0].result == 1){
-                    cb(data[0].url);
+                if (data2[0].result == 1){
+                    cb(data2[0].url);
                 } else {
-                    console.err("data[0].result = " + data[0].result);
+                    console.err("data[0].result = " + data2[0].result);
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             }, 
             dataType: "json",
-            crossDomain: true,
+            // crossDomain: true,
             cache: false
         });
     }

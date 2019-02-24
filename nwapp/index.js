@@ -1,13 +1,15 @@
 // https://gist.github.com/yangshun/9892961
 // modifed
 window.parseVideo = function (url) {
-    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com)\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|(player\.)bilibili\.com)\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
     if (RegExp.$3.indexOf('youtu') > -1) {
         var type = 'youtube';
     } else if (RegExp.$3.indexOf('vimeo') > -1) {
         var type = 'vimeo';
     } else if (RegExp.$3.indexOf('dailymotion') > -1) {
         var type = 'dailymotion';
+    } else if (RegExp.$3.indexOf('bilibili') > -1) {
+        var type = 'bilibili";
     }
 
     return {
@@ -18,7 +20,7 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
-    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1) return w.parseVideo(ytu);
+    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1) return w.parseVideo(ytu);
     return {id: ytu, type: "youtube"};
 }
 
@@ -29,11 +31,22 @@ window.getVideoThumbnail = function (w, url, cb) {
         cb('https://i.ytimg.com/vi/' + videoObj.id + '/maxresdefault.jpg');
     } else if (videoObj.type == 'vimeo') {
         // Requires jQuery
-        w.$.get('https://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data) {
-            cb(data[0].thumbnail_large);
+        w.$.get('https://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data, status, jxhr) {
+            if (status == "200") cb(data[0].thumbnail_large);
+            else cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(vimeo)");
         });
     } else if (videoObj.type == 'dailymotion') {
         cb('https://www.dailymotion.com/thumbnail/video/' + videoObj.id);
+    } else if (videoObj.type == 'bilibili') {
+        // sorry to galmoe.com maintainers
+        w.$.get('https://www.galmoe.com/t.php?aid=av' + videoObj.id, function(data, status, jxhr) {
+            if (status == "200" && data[0].result == 1){
+                cb(data[0].url);
+            } else {
+                console.err("status == "+status+"\ndata[0].result = " + data[0].result);
+                cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+            }
+        }, "json");
     }
 }
 
@@ -48,6 +61,10 @@ window.createVideo = function(w, url, width, height) {
         $iframe.attr('src', 'https://player.vimeo.com/video/' + videoObj.id);
     } else if (videoObj.type == 'dailymotion') {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
+    } else if (videoObj.type == 'bilibili') {
+        // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
+        // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
+        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id + "&crossDomain=1&as_wide=1&page=1");
     }
     return $iframe;
 }
@@ -63,6 +80,8 @@ window.createVideo2 = function(w, url, ifr) {
         $iframe.attr('src', 'https://player.vimeo.com/video/' + videoObj.id);
     } else if (videoObj.type == 'dailymotion') {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
+    } else if (videoObj.type == 'bilibili') {
+        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id + "&crossDomain=1&as_wide=1&page=1");
     }
     return $iframe;
 }

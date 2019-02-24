@@ -41,7 +41,9 @@ window.getVideoThumbnail = function (w, url, cb) {
         // sorry to galmoe.com maintainers
         // this one is strange, so i use $.ajax
         w.$.ajax({
+            type: 'GET',
             url: 'https://www.galmoe.com/t.php?aid=' + videoObj.id,
+            contentType: 'text/html',
             statusCode: {
                 404: function(){
                     console.err("statusCode = 404");
@@ -56,8 +58,10 @@ window.getVideoThumbnail = function (w, url, cb) {
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             },
+            error: function() {},
             crossDomain: true,
-            cache: false
+            cache: false,
+            xhrFields: { withCredentials: false }
         });
     }
 }

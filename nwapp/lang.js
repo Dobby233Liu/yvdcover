@@ -20,7 +20,7 @@ window.initLang = function(selector)
           
           var child = null;
           
-          for(z = 0; z<every.length - 1; z++){
+          for(z = 0; z < every.length; z++){
             child = every[z]
             console.log(child.getAttribute("translate-context"));
             if($.trim(child.getAttribute("translate-to")) != ""){

@@ -34,20 +34,20 @@
         <nav class="navbar navbar-default bg-light navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" aria-translate-context="fluxNavbarTitle">yvdcover</a>
+              <a class="navbar-brand" translate-context="fluxNavbarTitle">yvdcover</a>
             </div>
           </div>
         </nav>
         <main role="main">
           <div class="container">
-              <h1 class="mt-5" aria-translate-context="fluxHeadTitle">Video Cover Download</h1>
+              <h1 class="mt-5" translate-context="fluxHeadTitle">Video Cover Download</h1>
               <p class="lead">
                   <!--[if IE]>
                     <strong>Do not use IE</strong><br />
                   <![endif]-->
-                  <noscript aria-translate-context="fluxNoJS"><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
-                  <strong aria-translate-context="fluxSponsorParent"><span aria-translate-context="fluxSponsor1">For video download you should check out</span> <a href="https://savefrom.net" target="_blank" id="sfSponsor" aria-not-translateable>SaveFrom</a><span aria-translate-dot>.</span>
-                  <span aria-tc-quote="y"><span aria-translate-context="fluxSponsor2">(But for Bilibili videos you should use </span><a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" aria-translate-common-this>this</a>)</span>
+                  <noscript translate-context="fluxNoJS"><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
+                  <strong translate-context="fluxSponsorParent"><span translate-context="fluxSponsor1">For video download you should check out</span> <a href="https://savefrom.net" target="_blank" id="sfSponsor" not-translateable>SaveFrom</a><span translate-dot>.</span>
+                  <span tc-quote="y"><span translate-context="fluxSponsor2">(But for Bilibili videos you should use </span><a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" translate-common-this>this</a>)</span>
                   </strong>
               </p>
               <p>
@@ -58,22 +58,22 @@
                             type="text" 
                             id="ytId" 
                             onchange="return window.uglyIdChangeResolve(window)" 
-                            aria-label="id/url input"
+                            label="id/url input"
                             title="ID/URL (id only support YT)" 
                             class="form-control"
-                            aria-translate-context="fluxInput"
-                            aria-translate-to="[obj].title"
+                            translate-context="fluxInput"
+                            translate-to="[obj].title"
                             >
                          </div>
                     </div>
-                    <div class="btn-group" role="group" aria-label="form group submiter">
-                      <button type="submit" class="btn btn-primary" aria-translate-context="fluxGetButton">Get video cover</button>
-                      <button type="reset" class="btn btn-danger" aria-translate-context="fluxClearButton">Clear input</button>
-                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary" aria-translate-context="fluxWatch">Watch the video</button>
+                    <div class="btn-group" role="group" label="form group submiter">
+                      <button type="submit" class="btn btn-primary" translate-context="fluxGetButton">Get video cover</button>
+                      <button type="reset" class="btn btn-danger" translate-context="fluxClearButton">Clear input</button>
+                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary" translate-context="fluxWatch">Watch the video</button>
                     </div>
                   </form>
                 <!-- cover -->
-                <img id="resultImg" width="1280" height="720" alt="The result; This message will display when we cannot get the image" style="display: none;" class="img-thumbnail" referrerpolicy="never" referrer="never" aria-translate-context="fluxResultImage" aria-translate-to="[obj].alt"/>
+                <img id="resultImg" width="1280" height="720" alt="The result; This message will display when we cannot get the image" style="display: none;" class="img-thumbnail" referrerpolicy="never" referrer="never" translate-context="fluxResultImage" translate-to="[obj].alt"/>
                 <!-- video --> 
                 <div class="embed-responsive embed-responsive-4by3">
                     <iframe 
@@ -98,7 +98,7 @@
                     <option value="zh-CN">简体中文</option>
                     <option value="zh-TB">繁体中文</option>
                 </select>
-                <span class="text-muted" aria-translate-context="fluxCredits">tool by <a href="https://github.com/Dobby233Liu" target="_blank">Dobby233Liu</a></span>
+                <span class="text-muted" translate-context="fluxCredits">tool by <a href="https://github.com/Dobby233Liu" target="_blank">Dobby233Liu</a></span>
             </div>
         </footer>
         <script type="text/javascript" defer src="index.js"></script>

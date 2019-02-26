@@ -21,14 +21,14 @@ window.initLang = function(selector)
           var childJq = $(child);
           
           while(child){
-            if(typeof child.getAttribute("aria-translate-context") != undefined && !!child.getAttribute("aria-translate-context") && $.trim(child.getAttribute("aria-translate-context")) != ""){
-                if (child.aria-translate-context == "fluxSponsorParent"){
+            if(typeof child.getAttribute("translate-context") != undefined && !!child.getAttribute("translate-context") && $.trim(child.getAttribute("translate-context")) != ""){
+                if (child.translate-context == "fluxSponsorParent"){
                     continue;
                 }
-                if(typeof childJq.getAttribute("aria-translate-to") != undefined && !!child.getAttribute("aria-translate-to") && $.trim(child.getAttribute("aria-translate-to")) != ""){
-                    ((function(){return eval(child.getAttribute("aria-translate-to").replace(/[obj]/g, "child"))})()) = eval(child.getAttribute("aria-translate-context"));     
+                if(typeof childJq.getAttribute("translate-to") != undefined && !!child.getAttribute("translate-to") && $.trim(child.getAttribute("translate-to")) != ""){
+                    ((function(){return eval(child.getAttribute("translate-to").replace(/[obj]/g, "child"))})()) = eval(child.getAttribute("translate-context"));     
                 } else {
-                    child.innerHTML = eval(child.getAttribute("aria-translate-context"));
+                    child.innerHTML = eval(child.getAttribute("translate-context"));
                 }       
             }
             child = child.nextElementSibling;

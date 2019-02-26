@@ -40,7 +40,9 @@ window.getVideoThumbnail = function (w, url, cb) {
     } else if (videoObj.type == 'bilibili') {
         w.$.ajax({
             type: 'GET',
-            url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av",""),
+            url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av","") + "&json=jsonp",
+            dataType: "jsonp"
+            jsonp: "callback",
             success: function(data){
                 console.info(data);
                 if (data.code == 0){

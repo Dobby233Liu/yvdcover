@@ -33,6 +33,10 @@ window.initLang = function(selector)
               child.innerHTML = eval(child.getAttribute("translate-context"));
             }       
           }
+          
+          var single = document.querySelectorAll("footer span .text-muted")[0]
+          
+          single.innerHTML = fluxCredits
       }
     });    
 }

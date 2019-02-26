@@ -28,7 +28,7 @@ window.initLang = function(selector)
             }
             if($.trim(child.getAttribute("translate-to")) != ""){
               console.log(child.getAttribute("translate-to"));
-              eval(child.getAttribute("translate-to").replace(/obj/g, "child") + " = eval(child.getAttribute(\"translate-context\")");    
+              eval(child.getAttribute("translate-to").replace(/obj/g, "child") + " = eval(child.getAttribute(\"translate-context\"))");    
             } else {
               child.innerHTML = eval(child.getAttribute("translate-context"));
             }       

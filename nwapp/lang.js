@@ -21,7 +21,7 @@ window.initLang = function(selector)
           var child = null;
           
           for(z = 0; z<every.length - 1; z++){
-            child = every[z]
+            child = $(every[z])
             console.log(child.attr("translate-context"));
             if (child.attr("translate-context") == "fluxSponsorParent"){
               continue;

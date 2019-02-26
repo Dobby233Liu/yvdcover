@@ -1,6 +1,6 @@
 {
  "name": "yvdcover",
- "version": "0.4-biliblili-cnlangonly-pre",
+ "version": "0.4",
  "main": "index.html",
  "window": {
   "width": 1280,

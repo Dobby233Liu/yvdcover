@@ -41,7 +41,7 @@ window.getVideoThumbnail = function (w, url, cb) {
         w.$.ajax({
             type: 'GET',
             url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av","") + "&json=jsonp",
-            dataType: "jsonp"
+            dataType: "jsonp",
             jsonp: "callback",
             success: function(data){
                 console.info(data);

@@ -22,10 +22,12 @@ window.initLang = function(selector)
           
           while(child){
             if(typeof child.getAttribute("translate-context") != undefined && !!child.getAttribute("translate-context") && $.trim(child.getAttribute("translate-context")) != ""){
+                console.log(child.getAttribute("translate-context"));
                 if (child.getAttribute("translate-context") == "fluxSponsorParent"){
                     continue;
                 }
                 if(typeof child.getAttribute("translate-to") != undefined && !!child.getAttribute("translate-to") && $.trim(child.getAttribute("translate-to")) != ""){
+                    console.log(child.getAttribute("translate-to"));
                     ((function(){return eval(child.getAttribute("translate-to").replace(/[obj]/g, "child"))})()) = eval(child.getAttribute("translate-context"));     
                 } else {
                     child.innerHTML = eval(child.getAttribute("translate-context"));

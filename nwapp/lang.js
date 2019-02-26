@@ -18,18 +18,21 @@ window.initLang = function(selector)
           
           var child = document.body.firstElementChild;
           
+          var childJq = $(child);
+          
           while(child){
-            if(typeof child.aria-translate-context != undefined && !!child.aria-translate-context && $.trim(child.aria-translate-context.trim()) != ""){
+            if(typeof childJq.attr("aria-translate-context") != undefined && !!childJq.attr("aria-translate-context") && $.trim(childJq.attr("aria-translate-context")) != ""){
                 if (child.aria-translate-context == "fluxSponsorParent"){
                     continue;
                 }
-                if(typeof child.aria-translate-to != undefined && !!child.aria-translate-to && $.trim(child.aria-translate-to) != ""){
-                    ((function(){return eval(child.aria-translate-to.replace(/[obj]/g, "child"))})()) = eval(child.aria-translate-context);     
+                if(typeof childJq.attr("aria-translate-to") != undefined && !!childJq.attr("aria-translate-to") && $.trim(childJq.attr("aria-translate-to")) != ""){
+                    ((function(){return eval(childJq.attr("aria-translate-to").replace(/[obj]/g, "child"))})()) = eval(childJq.attr("aria-translate-context"));     
                 } else {
-                    child.innerHTML = eval(child.aria-translate-context);
+                    child.innerHTML = eval(childJq.attr("aria-translate-context"));
                 }       
             }
             child = child.nextElementSibling;
+            var childJq = $(child);
           }
       }
     });    

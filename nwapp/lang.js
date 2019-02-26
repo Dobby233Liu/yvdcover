@@ -22,10 +22,10 @@ window.initLang = function(selector)
           
           while(child){
             if(typeof child.getAttribute("translate-context") != undefined && !!child.getAttribute("translate-context") && $.trim(child.getAttribute("translate-context")) != ""){
-                if (child.translate-context == "fluxSponsorParent"){
+                if (child.getAttribute("translate-context") == "fluxSponsorParent"){
                     continue;
                 }
-                if(typeof childJq.getAttribute("translate-to") != undefined && !!child.getAttribute("translate-to") && $.trim(child.getAttribute("translate-to")) != ""){
+                if(typeof child.getAttribute("translate-to") != undefined && !!child.getAttribute("translate-to") && $.trim(child.getAttribute("translate-to")) != ""){
                     ((function(){return eval(child.getAttribute("translate-to").replace(/[obj]/g, "child"))})()) = eval(child.getAttribute("translate-context"));     
                 } else {
                     child.innerHTML = eval(child.getAttribute("translate-context"));

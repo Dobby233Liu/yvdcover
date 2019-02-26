@@ -46,7 +46,7 @@ window.getVideoThumbnail = function (w, url, cb) {
             success: function(data){
                 console.info(data);
                 if (data.code == 0){
-                    cb(data.data.pic);
+                    cb(data.data.pic.replace("http://", "https://"));
                 } else {
                     console.err("data.code = " + data.code);
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");

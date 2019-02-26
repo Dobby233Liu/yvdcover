@@ -16,21 +16,21 @@ window.initLang = function(selector)
           
           document.title = title;
           
-          var every = document.querySelectorAll("[translate-context]")
+          var every = $("[translate-context]")
           
           var child = null;
           
           for(z = 0; z<every.length - 1; z++){
             child = every[z]
-            console.log(child.getAttribute("translate-context"));
-            if (child.getAttribute("translate-context") == "fluxSponsorParent"){
+            console.log(child.attr("translate-context"));
+            if (child.attr("translate-context") == "fluxSponsorParent"){
               continue;
             }
-            if($.trim(child.getAttribute("translate-to")) != ""){
-              console.log(child.getAttribute("translate-to"));
-              eval(child.getAttribute("translate-to").replace(/obj/g, "child") + " = eval(child.getAttribute(\"translate-context\"))");    
+            if($.trim(child.attr("translate-to")) != ""){
+              console.log(child.attr("translate-to"));
+              eval(child.attr("translate-to").replace(/obj/g, "child") + " = eval(child.attr(\"translate-context\"))");    
             } else {
-              child.innerHTML = eval(child.getAttribute("translate-context"));
+              child.html = eval(child.attr("translate-context"));
             }       
           }
       }

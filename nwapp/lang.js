@@ -1,7 +1,7 @@
 var langNoChange = true
 window.initLang = function(selector)
 {
-    var toLang = selector.options[selector.options.selectedIndex].value;
+    var toLang = selector.options[selector.options.selectedIndex - 1].value;
     console.log(toLang)
     if(toLang == "en" && langNoChange) return;
     langNoChange = false;

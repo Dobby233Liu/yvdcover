@@ -74,7 +74,7 @@ window.createVideo = function(w, url, width, height) {
     } else if (videoObj.type == 'bilibili') {
         // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
         // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
-        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1&as_wide=1");
+        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1");
     }
     return $iframe;
 }

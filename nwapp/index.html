@@ -12,6 +12,9 @@
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
+        <script src="https://rawcdn.githack.com/jquery-i18n-properties/jquery-i18n-properties/77dbadbbb692848dca5f04c2bb5824c2a9d27d64/jquery.i18n.properties.min.js"></script>
+        <script
+            src="lang.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -44,7 +47,7 @@
                   <![endif]-->
                   <noscript aria-translate-context="fluxNoJS"><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
                   <strong aria-translate-context="fluxSponsorParent"><span aria-translate-context="fluxSponsor1">For video download you should check out</span> <a href="https://savefrom.net" target="_blank" id="sfSponsor" aria-not-translateable>SaveFrom</a><span aria-translate-dot>.</span>
-                  <span aria-tc-quote><span aria-translate-context="fluxSponsor2">(But for Bilibili videos you should use </span><a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" aria-translate-common-this>this</a>)</span>
+                  <span aria-tc-quote="y"><span aria-translate-context="fluxSponsor2">(But for Bilibili videos you should use </span><a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" aria-translate-common-this>this</a>)</span>
                   </strong>
               </p>
               <p>
@@ -90,7 +93,7 @@
         </main>
         <footer class="footer fixed-bottom mt-auto py-2">
             <div class="container">
-                <select class="selectpicker">
+                <select class="selectpicker" onchange="window.initLang(this); return false;">
                     <option value="en">English</option>
                     <option value="zh-CN">简体中文</option>
                     <option value="zh">繁体中文</option>

@@ -21,14 +21,14 @@ window.initLang = function(selector)
           var childJq = $(child);
           
           while(child){
-            if(typeof childJq.attr("aria-translate-context") != undefined && !!childJq.attr("aria-translate-context") && $.trim(childJq.attr("aria-translate-context")) != ""){
+            if(typeof child.getAttribute("aria-translate-context") != undefined && !!child.getAttribute("aria-translate-context") && $.trim(child.getAttribute("aria-translate-context")) != ""){
                 if (child.aria-translate-context == "fluxSponsorParent"){
                     continue;
                 }
-                if(typeof childJq.attr("aria-translate-to") != undefined && !!childJq.attr("aria-translate-to") && $.trim(childJq.attr("aria-translate-to")) != ""){
-                    ((function(){return eval(childJq.attr("aria-translate-to").replace(/[obj]/g, "child"))})()) = eval(childJq.attr("aria-translate-context"));     
+                if(typeof childJq.getAttribute("aria-translate-to") != undefined && !!child.getAttribute("aria-translate-to") && $.trim(child.getAttribute("aria-translate-to")) != ""){
+                    ((function(){return eval(child.getAttribute("aria-translate-to").replace(/[obj]/g, "child"))})()) = eval(child.getAttribute("aria-translate-context"));     
                 } else {
-                    child.innerHTML = eval(childJq.attr("aria-translate-context"));
+                    child.innerHTML = eval(child.getAttribute("aria-translate-context"));
                 }       
             }
             child = child.nextElementSibling;

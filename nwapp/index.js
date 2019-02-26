@@ -20,7 +20,7 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
-    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 /**|| ytu.indexOf('bilibili') > -1**/) return w.parseVideo(ytu);
+    if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1) return w.parseVideo(ytu);
     return {id: ytu, type: "youtube"};
 }
 
@@ -32,33 +32,28 @@ window.getVideoThumbnail = function (w, url, cb) {
     } else if (videoObj.type == 'vimeo') {
         // Requires jQuery
         w.$.get('https://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data, status, jxhr) {
-            if (status == "200") cb(data[0].thumbnail_large);
+            if (status == "success") cb(data[0].thumbnail_large);
             else cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(vimeo)");
         });
     } else if (videoObj.type == 'dailymotion') {
         cb('https://www.dailymotion.com/thumbnail/video/' + videoObj.id);
     } else if (videoObj.type == 'bilibili') {
-        // sorry to galmoe.com maintainers
-        // this one is strange, so i use $.ajax
         w.$.ajax({
             type: 'GET',
-            url: 'https://www.galmoe.com/t.php?aid=' + videoObj.id,
-            responseType: 'text/plain',
-            statusCode: {
-                404: function(){
-                    console.err("statusCode = 404");
-                    cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
-                }
-            },
+            url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av",""),
             success: function(data){
-                if (data/**[0]**/.result == 1){
-                    cb(data/**[0]**/.url);
+                console.info(data);
+                if (data.code == 0){
+                    cb(data.data.pic);
                 } else {
-                    console.err("data.result = " + data/**[0]**/.result);
+                    console.err("data.code = " + data.code);
                     cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
                 }
             },
-            error: function() {},
+            error: function(jqxhr, status, err){
+                console.error(err);
+                cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+            }
             crossDomain: true,
             cache: false,
             xhrFields: { withCredentials: false }
@@ -80,7 +75,7 @@ window.createVideo = function(w, url, width, height) {
     } else if (videoObj.type == 'bilibili') {
         // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
         // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
-        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id.replace("av", "") + "&crossDomain=1&page=1");
+        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1&as_wide=1");
     }
     return $iframe;
 }

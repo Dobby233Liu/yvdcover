@@ -7,7 +7,7 @@
         <meta name="theme-color" content="#f8f9fa" />
         <meta name="description" content="YouTube/Vimeo/DailyMotion Max Resolution Cover Download">  
         <meta http-equiv="x-dns-prefetch-control" content="on">
-        <title>YouTube/Vimeo/DailyMotion Max Resolution Cover Download</title>
+        <title aria-translate-context="docTitle" aria-translate-to="window.document.title">YouTube/Vimeo/DailyMotion Max Resolution Cover Download</title>
         <script
             async
             defer
@@ -24,25 +24,28 @@
         <link rel="icon" type="image/gif" href="favicon.gif">
         <link rel="icon" type="image/png" href="favicon.png">
         <link rel="icon" type="image/svg+xml" href="favicon.svg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/i18n/defaults-*.min.js"></script>
     </head>
     <body class="d-flex flex-column">           
         <nav class="navbar navbar-default bg-light navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand">yvdcover</a>
+              <a class="navbar-brand" aria-translate-context="fluxNavbarTitle">yvdcover</a>
             </div>
           </div>
         </nav>
         <main role="main">
           <div class="container">
-              <h1 class="mt-5">Video Cover Download</h1>
+              <h1 class="mt-5" aria-translate-context="fluxHeadTitle">Video Cover Download</h1>
               <p class="lead">
                   <!--[if IE]>
                     <strong>Do not use IE</strong><br />
                   <![endif]-->
-                  <noscript><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
-                  <strong>For video download you should check out <a href="https://savefrom.net" target="_blank" id="sfSponsor">SaveFrom</a>.
-                  (But for Bilibili videos you should use <a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1">this</a>)
+                  <noscript aria-translate-context="fluxNoJS"><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
+                  <strong aria-translate-context="fluxSponsorParent"><span aria-translate-context="fluxSponsor1">For video download you should check out</span> <a href="https://savefrom.net" target="_blank" id="sfSponsor" aria-not-translateable>SaveFrom</a><span aria-translate-dot>.</span>
+                  <span aria-tc-quote><span aria-translate-context="fluxSponsor2">(But for Bilibili videos you should use </span><a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" aria-translate-common-this>this</a>)</span>
                   </strong>
               </p>
               <p>
@@ -55,22 +58,23 @@
                             onchange="return window.uglyIdChangeResolve(window)" 
                             aria-label="id/url input"
                             title="ID/URL (id only support YT)" 
-                            class="form-control">
+                            class="form-control"
+                            aria-translate-context="fluxInput"
+                            aria-translate-to="[obj].title"
+                            >
                          </div>
                     </div>
                     <div class="btn-group" role="group" aria-label="form group submiter">
-                      <button type="submit" class="btn btn-primary">Get video cover</button>
-                      <button type="reset" class="btn btn-danger">Clear input</button>
-                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary">Watch the video</button>
+                      <button type="submit" class="btn btn-primary" aria-translate-context="fluxGetButton">Get video cover</button>
+                      <button type="reset" class="btn btn-danger" aria-translate-context="fluxClearButton">Clear input</button>
+                      <button type="button" onclick="return watchVideoEx(window)" class="btn btn-secondary" aria-translate-context="fluxWatch">Watch the video</button>
                     </div>
                   </form>
                 <!-- cover -->
-                <img id="resultImg" width="1280" height="720" alt="The result; This message will display when we cannot get the image" style="display: none;" class="img-thumbnail"/>
+                <img id="resultImg" width="1280" height="720" alt="The result; This message will display when we cannot get the image" style="display: none;" class="img-thumbnail" aria-translate-context="fluxResultImage" aria-translate-to="[obj].alt"/>
                 <!-- video --> 
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe 
-                        width="1280"
-                        height="720" 
                         src="about:blank" 
                         frameborder="0"
                         framespacing="0" 
@@ -86,7 +90,12 @@
         </main>
         <footer class="footer mt-auto py-3 fixed-bottom">
             <div class="container">
-                <span class="text-muted">tool by <a href="https://github.com/Dobby233Liu" target="_blank">Dobby233Liu</a></span>
+                <select class="selectpicker">
+                    <option>English</option>
+                    <option>简体中文</option>
+                    <option>繁体中文</option>
+                </select>
+                <span class="text-muted" aria-translate-context="fluxCredits">tool by <a href="https://github.com/Dobby233Liu" target="_blank">Dobby233Liu</a></span>
             </div>
         </footer>
         <script type="text/javascript" defer src="index.js"></script>

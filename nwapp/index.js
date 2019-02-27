@@ -61,20 +61,10 @@ window.getVideoThumbnail = function (w, url, cb) {
         } else if (videoObj.id.indexOf('cv') > -1) {
           w.$.ajax({              
               type: 'GET',
-              url: 'https://api.bilibili.com/x/article/viewinfo?id=' + videoObj.id.replace("cv","") + "&mobi_app=h5&jsonp=jsonp",
-              header: {
-                "Referer": "https://www.bilibili.com/read/cv" + videoObj.id.replace("cv","")
-              },
-              dataType: "jsonp",
-              jsonp: "callback",
+              url: 'https://www.bilibili.com/read/' + videoObj.id,
+              dataType: "html",
               success: function(data){
-                  console.info(data);
-                  if (data.code == 0){
-                      cb(data.data.banner_url);
-                  } else {
-                      console.error("data.code = " + data.code);
-                      cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili%20article)");
-                  }
+                  cb(data.original);
               },
               error: function(jqxhr, status, err){
                   console.error(err);

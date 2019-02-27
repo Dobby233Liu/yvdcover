@@ -102,7 +102,7 @@ window.createVideo = function(w, url, width, height) {
         $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1");
         
         if (videoObj.id.indexOf('cv') > -1) {
-            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", "");
+            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));
         }    
     }
     return $iframe;
@@ -123,7 +123,7 @@ window.createVideo2 = function(w, url, ifr) {
         $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id.replace("av", "") + "&crossDomain=1&page=1");
         
         if (videoObj.id.indexOf('cv') > -1) {
-            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", "");
+            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));
         }
     }
     return $iframe;

@@ -1,7 +1,7 @@
 // https://gist.github.com/yangshun/9892961
 // modifed
 window.parseVideo = function (url) {
-    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|bilibili\.com)\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|bilibili\.com)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
     if (RegExp.$3.indexOf('youtu') > -1) {
         var type = 'youtube';
     } else if (RegExp.$3.indexOf('vimeo') > -1) {
@@ -38,25 +38,50 @@ window.getVideoThumbnail = function (w, url, cb) {
     } else if (videoObj.type == 'dailymotion') {
         cb('https://www.dailymotion.com/thumbnail/video/' + videoObj.id);
     } else if (videoObj.type == 'bilibili') {
-        w.$.ajax({
-            type: 'GET',
-            url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av","") + "&jsonp=jsonp",
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function(data){
-                console.info(data);
-                if (data.code == 0){
-                    cb(data.data.pic.replace("http://", "https://"));
-                } else {
-                    console.err("data.code = " + data.code);
-                    cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
-                }
-            },
-            error: function(jqxhr, status, err){
-                console.error(err);
-                cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
-            }
-        });
+        if (videoObj.id.indexOf('av') > -1){
+          w.$.ajax({              
+              type: 'GET',
+              url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av","") + "&jsonp=jsonp",
+              dataType: "jsonp",
+              jsonp: "callback",
+              success: function(data){
+                  console.info(data);
+                  if (data.code == 0){
+                      cb(data.data.pic.replace("http://", "https://"));
+                  } else {
+                      console.error("data.code = " + data.code);
+                      cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+                  }
+              },
+              error: function(jqxhr, status, err){
+                  console.error(err);
+                  cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili)");
+              }
+          });
+        } else if (videoObj.id.indexOf('cv') > -1) {
+          w.$.ajax({              
+              type: 'GET',
+              url: 'https://api.bilibili.com/x/article/viewinfo?id=' + videoObj.id.replace("cv","") + "&mobi_app=h5&jsonp=jsonp",
+              header: {
+                "Referer": "https://www.bilibili.com/read/cv" + videoObj.id.replace("cv","")
+              },
+              dataType: "jsonp",
+              jsonp: "callback",
+              success: function(data){
+                  console.info(data);
+                  if (data.code == 0){
+                      cb(data.data.banner_url);
+                  } else {
+                      console.error("data.code = " + data.code);
+                      cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili%20article)");
+                  }
+              },
+              error: function(jqxhr, status, err){
+                  console.error(err);
+                  cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(bilibili%20article)");
+              }
+          });  
+        }
     }
 }
 
@@ -75,6 +100,10 @@ window.createVideo = function(w, url, width, height) {
         // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
         // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
         $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1");
+        
+        if (videoObj.id.indexOf('cv') > -1) {
+            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", "");
+        }    
     }
     return $iframe;
 }
@@ -92,6 +121,10 @@ window.createVideo2 = function(w, url, ifr) {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
     } else if (videoObj.type == 'bilibili') {
         $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id.replace("av", "") + "&crossDomain=1&page=1");
+        
+        if (videoObj.id.indexOf('cv') > -1) {
+            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", "");
+        }
     }
     return $iframe;
 }

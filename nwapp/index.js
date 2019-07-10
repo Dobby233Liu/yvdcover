@@ -1,7 +1,7 @@
 // https://gist.github.com/yangshun/9892961
 // modifed
 window.parseVideo = function (url) {
-    url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|bilibili\.com|b23.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    url.match(/(http:|https:|)\/\/(player.|www.|m.|wap.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|bilibili\.com|b23.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
     if (RegExp.$3.indexOf('youtu') > -1) {
         var type = 'youtube';
     } else if (RegExp.$3.indexOf('vimeo') > -1) {

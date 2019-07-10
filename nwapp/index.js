@@ -149,6 +149,7 @@ window.doRefresh = function(w){
     alert(e.stack)
     return true;
     }
+return true;
 }
 window.doClear = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);

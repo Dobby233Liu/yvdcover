@@ -135,6 +135,7 @@ window.ifrId = "myIfr";
 window.sfId = "sfSponsor";
 
 window.doRefresh = function(w){
+    try{
     var ytImgEle = w.document.getElementById(w.ytImgContId);
     var ytIEle = w.document.getElementById(w.ytIdId);
     w.getVideoThumbnail(w, ytIEle.value, function(f){
@@ -144,6 +145,10 @@ window.doRefresh = function(w){
         w.document.getElementById(w.ifrId).style.display="none";
     });
     return false;
+    }catch(e){
+    alert(e.stack)
+    return true;
+    }
 }
 window.doClear = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);

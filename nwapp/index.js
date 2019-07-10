@@ -21,7 +21,7 @@ window.parseVideo = function (url) {
 // by myself
 window.hyperId = function(w, ytu){
     if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1||ytu.indexOf('b23.tv') > -1) return w.parseVideo(ytu);
-    if(ytu.indexOf('av')>-1||ytu.indexOf('cv')>-1)return {id: ytu, type: "bilibili"};
+    if(ytu.indexOf('av')>-1||ytu.indexOf('cv')>-1) return {id: ytu, type: "bilibili"};
     return {id: ytu, type: "youtube"};
 }
 

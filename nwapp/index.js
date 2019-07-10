@@ -1,7 +1,7 @@
 // https://gist.github.com/yangshun/9892961
 // modifed
 window.parseVideo = function (url) {
-    url.match(/(http:|https:|)\/\/(player.|www.|m.|wap.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion.com|bilibili\.com|b23.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    url.match(/(http:|https:|)\/\/(player.|www.|m.|wap.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com|dailymotion.com|bilibili\.com|b23.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
     if (RegExp.$3.indexOf('youtu') > -1) {
         var type = 'youtube';
     } else if (RegExp.$3.indexOf('vimeo') > -1) {
@@ -21,6 +21,7 @@ window.parseVideo = function (url) {
 // by myself
 window.hyperId = function(w, ytu){
     if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1||ytu.indexOf('b23.tv') > -1) return w.parseVideo(ytu);
+    if(ytu.indexOf('av')>-1||ytu.indexOf('cv')>-1)return {id: ytu, type: "bilibili"};
     return {id: ytu, type: "youtube"};
 }
 

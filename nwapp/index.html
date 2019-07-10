@@ -45,26 +45,24 @@
                   <!--[if IE]>
                     <strong>Do not use IE</strong><br />
                   <![endif]-->
-                  <noscript translate-context="fluxNoJS"><strong>Sorry, No way, please enable JavaScript</strong><br /></noscript>
+                  <noscript translate-context="fluxNoJS"><strong>Sorry, no way, please enable JavaScript</strong><br /></noscript>
                   <strong><span translate-context="fluxSponsor1">For video download you should check out</span> <a href="https://savefrom.net" target="_blank" id="sfSponsor" not-translateable>SaveFrom</a><span translate-context="ariaDot">.</span>
                   <span tc-quote="y"><span translate-context="ariaLangQuote1">(</span><span translate-context="fluxSponsor2">But for Bilibili videos you should use</span> <a href="https://github.com/Dobby233Liu/UselessPs1Scr/raw/master/dlbili.ps1" translate-context="ariaThis">this</a><span translate-context="ariaLangQuote2">)</span></span>
                   </strong>
               </p>
               <p>
-                  <form onsubmit="return doRefresh(window)" onreset="return doClear(window)" class="form-inline">
+                  <form onsubmit="return doRefresh(window)" onreset="return doClear(window)">
                     <div class="form-group">
-                        <div class="col-7"> 
-                          <input 
+                        <input 
                             type="text" 
                             id="ytId" 
                             onchange="return window.uglyIdChangeResolve(window)" 
                             label="id/url input"
-                            title="ID/URL (id only support YT)" 
+                            title="ID/URL (id supports YT and bilibili)" 
                             class="form-control"
                             translate-context="fluxInput"
                             translate-to="obj.title"
-                            >
-                         </div>
+                        >
                     </div>
                     <div class="btn-group" role="group" label="form group submiter">
                       <button type="submit" class="btn btn-primary" translate-context="fluxGetButton">Get video cover</button>
@@ -93,7 +91,7 @@
         </main>
         <footer class="footer mt-auto py-2">
             <div class="container">
-                <select class="selectpicker" onchange="window.initLang(this); return false;">
+                <select class="selectpicker col-7" onchange="window.initLang(this); return false;">
                     <option value="en">English</option>
                     <option value="zh-CN">简体中文</option>
                     <option value="zh-TB">繁体中文</option>

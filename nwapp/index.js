@@ -107,7 +107,7 @@ window.createVideo2 = function(w, url, ifr, jq = false) {
     } else if (videoObj.type == 'bilibili' || videoObj.type == 'bilibili-bv') {
         // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
         // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
-        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?'+(videoObj.type == 'bilibili-bv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av", ""):videoObj.id) + "&wmode=transparent&crossDomain=1&page=1");
+        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?'+(videoObj.type == 'bilibili-bv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av", ""):window.bv.decode(videoObj.id)) + "&wmode=transparent&crossDomain=1&page=1");
         
         if (videoObj.type == 'bilibili' && videoObj.id.indexOf('cv') > -1) {
             $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));

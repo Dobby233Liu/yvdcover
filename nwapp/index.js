@@ -20,7 +20,7 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
-	if(!(ytu.toLowerCase().indexOf('bv')>-1)) ytu.
+	if(!(ytu.toLowerCase().indexOf('bv')>-1)) ytu = ytu.toLowerCase();
     if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1||ytu.indexOf('b23') > -1) return w.parseVideo(ytu);
     if(ytu.indexOf('av')>-1||ytu.indexOf('cv')>-1) return {id: ytu, type: "bilibili"};
 	if(ytu.indexOf('bv')>-1||ytu.indexOf('BV')>-1) return {id: ytu, type: "bilibili-bv"};

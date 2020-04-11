@@ -20,8 +20,10 @@ window.parseVideo = function (url) {
 
 // by myself
 window.hyperId = function(w, ytu){
+	if(!(ytu.toLowerCase().indexOf('bv')>-1)) ytu.
     if (ytu.indexOf('youtu') > -1 || ytu.indexOf('vimeo') > -1 || ytu.indexOf('dailymotion') > -1 || ytu.indexOf('bilibili') > -1||ytu.indexOf('b23') > -1) return w.parseVideo(ytu);
     if(ytu.indexOf('av')>-1||ytu.indexOf('cv')>-1) return {id: ytu, type: "bilibili"};
+	if(ytu.indexOf('bv')>-1||ytu.indexOf('BV')>-1) return {id: ytu, type: "bilibili-bv"};
     return {id: ytu, type: "youtube"};
 }
 
@@ -38,11 +40,11 @@ window.getVideoThumbnail = function (w, url, cb) {
         });
     } else if (videoObj.type == 'dailymotion') {
         cb('https://www.dailymotion.com/thumbnail/video/' + videoObj.id);
-    } else if (videoObj.type == 'bilibili') {
-        if (videoObj.id.indexOf('av') > -1){
+    } else if (videoObj.type == 'bilibili'||videoObj.type == 'bilibili-bv') {
+        if (videoObj.id.indexOf('av') > -1||videoObj.type == 'bilibili-bv'){
           w.$.ajax({              
               type: 'GET',
-              url: 'https://api.bilibili.com/x/web-interface/view?aid=' + videoObj.id.replace("av","") + "&jsonp=jsonp",
+              url: 'https://api.bilibili.com/x/web-interface/view?'+(videoObj.type == 'bilibili-bv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av",""):videoObj.id) + "&jsonp=jsonp",
               dataType: "jsonp",
               jsonp: "callback",
               success: function(data){

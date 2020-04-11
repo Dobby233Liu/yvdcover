@@ -11,7 +11,7 @@ node_js:
 - '11'
 branches:
   include:
-  - gh-pages
+    - master
 script: node ./s-build-all.js --production
 deploy:
   provider: releases

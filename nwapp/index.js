@@ -9,7 +9,7 @@ window.parseVideo = function (url) {
     } else if (RegExp.$3.indexOf('dailymotion') > -1) {
         var type = 'dailymotion';
     } else if (RegExp.$3.indexOf('bilibili') > -1||RegExp.$3.indexOf('b23') > -1) {
-        var type = 'bilibili';
+        if (RegExp.$6.indexOf("bv")>-1){var type="bilibili-bv";}else{var type = 'bilibili';}
     }
 
     return {
@@ -104,10 +104,10 @@ window.createVideo2 = function(w, url, ifr, jq = false) {
         $iframe.attr('src', 'https://player.vimeo.com/video/' + videoObj.id);
     } else if (videoObj.type == 'dailymotion') {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
-    } else if (videoObj.type == 'bilibili' || videoObj.type == 'bilibili-cv') {
+    } else if (videoObj.type == 'bilibili' || videoObj.type == 'bilibili-bv') {
         // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
         // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
-        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?'+(videoObj.type == 'bilibili-cv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av", ""):videoObj.id) + "&wmode=transparent&crossDomain=1&page=1");
+        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?'+(videoObj.type == 'bilibili-bv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av", ""):videoObj.id) + "&wmode=transparent&crossDomain=1&page=1");
         
         if (videoObj.type == 'bilibili' && videoObj.id.indexOf('cv') > -1) {
             $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));

@@ -91,13 +91,13 @@ window.createVideo = function(w, url, width, height) {
     var videoObj = w.hyperId(w, url);
     var $iframe = w.$('<iframe>', { width: width, height: height });
     $iframe.attr('frameborder', 0);
-    return window.createVideo2(w, url, $iframe);
+    return window.createVideo2(w, url, $iframe, true);
 }
 
-window.createVideo2 = function(w, url, ifr) {
+window.createVideo2 = function(w, url, ifr, jq = false) {
     // Returns an iframe of the video with the specified URL, but the iframe precreated
     var videoObj = w.hyperId(w, url);
-    var $iframe = w.$(ifr);
+    var $iframe = (jq?ifr:w.$(ifr));
     if (videoObj.type == 'youtube') {
         $iframe.attr('src', 'https://www.youtube.com/embed/' + videoObj.id);
     } else if (videoObj.type == 'vimeo') {

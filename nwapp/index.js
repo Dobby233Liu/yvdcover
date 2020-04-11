@@ -91,41 +91,27 @@ window.createVideo = function(w, url, width, height) {
     var videoObj = w.hyperId(w, url);
     var $iframe = w.$('<iframe>', { width: width, height: height });
     $iframe.attr('frameborder', 0);
-    if (videoObj.type == 'youtube') {
-        $iframe.attr('src', 'https://www.youtube.com/embed/' + videoObj.id);
-    } else if (videoObj.type == 'vimeo') {
-        $iframe.attr('src', 'https://player.vimeo.com/video/' + videoObj.id);
-    } else if (videoObj.type == 'dailymotion') {
-        $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
-    } else if (videoObj.type == 'bilibili') {
-        // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
-        // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
-        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?aid=' + videoObj.id.replace("av", "") + "&wmode=transparent&crossDomain=1&page=1");
-        
-        if (videoObj.id.indexOf('cv') > -1) {
-            $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));
-        }    
-    }
-    return $iframe;
+    return window.createVideo2(w, url, $iframe);
 }
 
 window.createVideo2 = function(w, url, ifr) {
     // Returns an iframe of the video with the specified URL, but the iframe precreated
     var videoObj = w.hyperId(w, url);
     var $iframe = w.$(ifr);
-    // $iframe.attr('frameborder', 0);
     if (videoObj.type == 'youtube') {
         $iframe.attr('src', 'https://www.youtube.com/embed/' + videoObj.id);
     } else if (videoObj.type == 'vimeo') {
         $iframe.attr('src', 'https://player.vimeo.com/video/' + videoObj.id);
     } else if (videoObj.type == 'dailymotion') {
         $iframe.attr('src', 'https://www.dailymotion.com/embed/video/' + videoObj.id);
-    } else if (videoObj.type == 'bilibili') {
-        $iframe.attr('src', 'https://player.bilibili.com/player.html?aid=' + videoObj.id.replace("av", "") + "&crossDomain=1&page=1");
+    } else if (videoObj.type == 'bilibili' || videoObj.type == 'bilibili-cv') {
+        // normal: https://player.bilibili.com/player.html?aid=44479907&cid=77871619&page=1
+        // case in control panel: https://player.bilibili.com/blackboard/html5player.html?aid=41120791&cid=233&wmode=transparent&as_wide=1&crossDomain=1
+        $iframe.attr('src', 'https://player.bilibili.com/blackboard/html5player.html?'+(videoObj.type == 'bilibili-cv'?"bvid":"aid")+'=' + (videoObj.type == 'bilibili'?videoObj.id.replace("av", ""):videoObj.id) + "&wmode=transparent&crossDomain=1&page=1");
         
-        if (videoObj.id.indexOf('cv') > -1) {
+        if (videoObj.type == 'bilibili' && videoObj.id.indexOf('cv') > -1) {
             $iframe.attr('src', 'https://www.bilibili.com/read/mobile/' + videoObj.id.replace("cv", ""));
-        }
+        }    
     }
     return $iframe;
 }

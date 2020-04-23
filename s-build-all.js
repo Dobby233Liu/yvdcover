@@ -23,6 +23,7 @@ nw.build().then(function () {
 							})
 							.catch(err => {
 								console.log("win32 zipping FAIL");
+								console.error(err);
 							});
 	compressing.zip.compressDir('./build/yvdcover/win64/',
 						    './build/yvdcover/yvdcover-win64.zip')
@@ -31,6 +32,7 @@ nw.build().then(function () {
 							})
 							.catch(err => {
 								console.log("win64 zipping FAIL");
+								console.error(err);
 							});
 	compressing.zip.compressDir('./build/yvdcover/osx64/',
 						    './build/yvdcover/yvdcover-osx64.zip')
@@ -40,6 +42,7 @@ nw.build().then(function () {
 							})
 							.catch(err => {
 								console.log("osx64 zipping FAIL");
+								console.error(err);
 							});
 }).catch(function (error) {
     console.error(error);

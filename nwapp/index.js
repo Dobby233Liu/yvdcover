@@ -1,7 +1,7 @@
 // https://gist.github.com/yangshun/9892961
 // modifed
 window.parseVideo = function (url) {
-    url.match(/(http:|https:|)\/\/(player.|www.|m.|wap.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion\.com|bilibili\.com|b23\.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+    url.match(/(http:|https:|)\/\/(player.|www.|m.|wap.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com)|dailymotion\.com|bilibili\.com|b23\.tv)\/(video\/|embed\/|watch\?v=|v\/|read\/)?([A-Za-z0-9._%-]*)(&\S+)?/);
     if (RegExp.$3.indexOf('youtu') > -1) {
         var type = 'youtube';
     } else if (RegExp.$3.indexOf('vimeo') > -1) {
@@ -33,7 +33,7 @@ window.getVideoThumbnail = function (w, url, cb) {
         cb('https://i.ytimg.com/vi/' + videoObj.id + '/maxresdefault.jpg');
     } else if (videoObj.type == 'vimeo') {
         // Requires jQuery
-        w.$.get('https://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data, status, jxhr) {
+        w.$.get('https://vimeo.com/api/v2/video/' + videoObj.id + '.json', function(data, status/**, jxhr**/) {
             if (status == "success") cb(data[0].thumbnail_large);
             else cb("https://via.placeholder.com/640x480.png/000000/444444?text=Cover%20Not%20Found%20(vimeo)");
         });
@@ -87,7 +87,6 @@ window.getVideoThumbnail = function (w, url, cb) {
 
 window.createVideo = function(w, url, width, height) {
     // Returns an iframe of the video with the specified URL.
-    var videoObj = w.hyperId(w, url);
     var $iframe = w.$('<iframe>', { width: width, height: height });
     $iframe.attr('frameborder', 0);
     return window.createVideo2(w, url, $iframe, true);
@@ -123,20 +122,20 @@ window.sfId = "sfSponsor";
 
 window.doRefresh = function(w){
     try{
-    var ytImgEle = w.document.getElementById(w.ytImgContId);
-    var ytIEle = w.document.getElementById(w.ytIdId);
-    w.getVideoThumbnail(w, ytIEle.value, function(f){
-        ytImgEle.src = f;
-        ytImgEle.style.display = "block";
-        w.document.getElementById(w.ifrId).src = "about:blank";
-        w.document.getElementById(w.ifrId).style.display="none";
-    });
+		var ytImgEle = w.document.getElementById(w.ytImgContId);
+		var ytIEle = w.document.getElementById(w.ytIdId);
+		w.getVideoThumbnail(w, ytIEle.value, function(f){
+			ytImgEle.src = f;
+			ytImgEle.style.display = "block";
+			w.document.getElementById(w.ifrId).src = "about:blank";
+			w.document.getElementById(w.ifrId).style.display="none";
+		});
     return false;
     }catch(e){
-    alert(e.stack)
-    return true;
+		alert(e.stack);
+		return true;
     }
-return true;
+	// return true; /// @codefactor UNREACHABLE
 }
 window.doClear = function(w){
     var ytImgEle = w.document.getElementById(w.ytImgContId);

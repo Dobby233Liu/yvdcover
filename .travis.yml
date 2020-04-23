@@ -3,9 +3,9 @@ addons:
   apt:
     update: true
 before_install:
-- npm install nw-builder --save-dev
-- npm install compressing --save-dev
-- npm install os-tmpdir -g
+    - npm install nw-builder --save-dev
+    - npm install compressing --save-dev
+    - npm install os-tmpdir -g
 install: git branch
 node_js:
 - '11'
